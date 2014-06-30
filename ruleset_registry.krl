@@ -52,7 +52,7 @@ Ruleset for registering other rulesets
    if(passphrase eq expected_pp) then 
    {
       
-      rsm:delete(new_rid) setting (isCreated)
+      rsm:delete(rid) setting (isCreated)
  
    }
 
