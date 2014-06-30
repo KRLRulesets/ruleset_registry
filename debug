@@ -1,0 +1,38 @@
+------------------- begin rule execution: register_ruleset ------------------------
+50997926 28209196799 DEBUG KToken.pm b16x25 register_ruleset Get token for session: e7860443f267195f7b7da92fbffad1e3
+50998008 28209196799 DEBUG Operators.pm b16x25 register_ruleset eval_operator evaluation with op -> klog
+50998010 28209196799 DEBUG Operators.pm b16x25 register_ruleset >>>>  new rid >>>> v1.fuse.common
+50998010 28209196799 DEBUG Operators.pm b16x25 register_ruleset eval_operator evaluation with op -> klog
+50998011 28209196799 DEBUG Operators.pm b16x25 register_ruleset >>>> given pp >>>> flipper
+50998011 28209196799 DEBUG Operators.pm b16x25 register_ruleset eval_operator evaluation with op -> klog
+50998012 28209196799 DEBUG Operators.pm b16x25 register_ruleset >>>> eci >>>>5D9365F6-0072-11E4-8145-C0BFD61CF0AC
+50998012 28209196799 DEBUG Operators.pm b16x25 register_ruleset eval_operator evaluation with op -> klog
+50998013 28209196799 DEBUG Operators.pm b16x25 register_ruleset >>>> uri >>>> https://s3.amazonaws.com/Fuse_assets/rulesets/fuse_common.krl
+50998013 28209196799 DEBUG Operators.pm b16x25 register_ruleset eval_operator evaluation with op -> klog
+50998014 28209196799 DEBUG Modules.pm b16x25 register_ruleset Returning keys for system_credentials
+50998015 28209196799 DEBUG Operators.pm b16x25 register_ruleset >>> pp >>>>flipper
+50998019 28209196799 DEBUG Rules.pm b16x25 register_ruleset fired
+50998020 28209196799 DEBUG Actions.pm b16x25 register_ruleset blocktype is [every]
+50998020 28209196799 DEBUG Actions.pm b16x25 register_ruleset actions list contains 2 actions
+50998023 28209196799 DEBUG Directives.pm b16x25 register_ruleset Created new directive with: ruleset_registered
+50998024 28209196799 DEBUG Response.pm b16x25 register_ruleset Adding new directive ruleset_registered
+50998024 28209196799 DEBUG Rules.pm b16x25 register_ruleset All threads complete
+50998025 28209196799 DEBUG Rules.pm b16x25 register_ruleset Actions: []
+50998026 28209196799 DEBUG Scheduler.pm b16x25 register_ruleset Rule name: register_ruleset
+50998027 28209196799 DEBUG Scheduler.pm b16x25 register_ruleset Resetting schedule
+50998027 28209196799 DEBUG Rules.pm b16x25 register_ruleset Finished processing rules for b16x25
+50998027 28209196799 DEBUG AST.pm b16x25 register_ruleset Generating JS for b16x25 in context 0
+50998028 28209196799 DEBUG AST.pm b16x25 register_ruleset Generating resource statement for b16x25
+50998029 28209196799 DEBUG Log.pm b16x25 register_ruleset [logging] Storing logging data
+50998030 28209196799 DEBUG Log.pm b16x25 register_ruleset results for register_ruleset
+50998030 28209196799 DEBUG Log.pm b16x25 register_ruleset TXN_ID: B532EC28-0081-11E4-B934-9A7BE71C24E1
+50998030 28209196799 DEBUG Session.pm b16x25 register_ruleset Cleaning up session
+50998031 28209196799 INFO Response.pm b16x25 register_ruleset Event processing finished
+50998031 28209196799 DEBUG Response.pm b16x25 register_ruleset __FLUSH__
+50998031 28209196799 DEBUG Response.pm b16x25 register_ruleset Returning directives from evaluation
+
+
+
+developer_eci: 5D9365F6-0072-11E4-8145-C0BFD61CF0AC
+
+eci: db6937f0-13f8-012f-98fb-00163e411455
