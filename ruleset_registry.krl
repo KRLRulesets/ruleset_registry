@@ -9,7 +9,7 @@ Ruleset for registering other rulesets
 
     use module b16x24 alias system_credentials
 
-  }
+  } 
 
  rule register_ruleset {
    select when system new_ruleset_registration
