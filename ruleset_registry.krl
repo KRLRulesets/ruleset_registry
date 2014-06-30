@@ -1,4 +1,4 @@
-ruleset ruleset_registry {
+newruleset ruleset_registry {
   meta {
     name "Register ruleset"
     description <<
@@ -35,12 +35,16 @@ Ruleset for registering other rulesets
  
    }
 
+   fired {
+     log ">>>>> created ran >>>>> " + isCreated;
+   }
+
  }
 
  rule delist_ruleset {
    select when system delete_ruleset_registration
    pre {
-     rid = event:attr("rid").klog(">>>>  rid to delete >>>> ");
+     rid = event:attr("new_rid").klog(">>>>  rid to delete >>>> ");
      passphrase = event:attr("passphrase").klog(">>>> given pp >>>> ");
      expected_pp = keys:system_credentials("passphrase").klog(">>> pp >>>>");
    }
@@ -48,7 +52,7 @@ Ruleset for registering other rulesets
    if(passphrase eq expected_pp) then 
    {
       
-      rsm:delete(rid) setting (isCreated)
+      rsm:delete(new_rid) setting (isCreated)
  
    }
 
