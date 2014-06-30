@@ -1,4 +1,4 @@
-newruleset ruleset_registry {
+ruleset ruleset_registry {
   meta {
     name "Register ruleset"
     description <<
