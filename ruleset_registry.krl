@@ -52,10 +52,14 @@ Ruleset for registering other rulesets
    if(passphrase eq expected_pp) then 
    {
       
-      rsm:delete(rid) setting (isCreated)
+      rsm:delete(rid) setting (isDelete);
+      send_directive("deleting_ruleset") with
+        rid = rid;
  
    }
-
+   fired {
+     log ">>>>> created ran >>>>> " + isCreated;
+   }
  }
 
 
