@@ -9,6 +9,7 @@ use Data::Dumper;
 use YAML::XS;
 use POSIX qw(strftime);
 use Kinetic::Raise;
+use Kinetic::Cloud;
 
 use constant DEFAULT_CONFIG_FILE => './register.yml';
 use constant DEFAULT_RULES_ENGINE => 'kibdev.kobj.net';
@@ -48,6 +49,15 @@ my $event = Kinetic::Raise->new($event_domain,
 				$options
 			       );
 
+my $query = Kinetic::Cloud->new($config->{"query_domain"},
+				"listRulesets",
+				$eci,
+				{"host" => "kibdev.kobj.net"}
+			       );
+
+my $already_registered = $query->query({"developer_eci" => $developer_eci});
+print Dumper $already_registered;
+
 foreach my $rline (@{ $rulesets }) {
 
     my $url = $rline->{"url"};
@@ -63,7 +73,7 @@ foreach my $rline (@{ $rulesets }) {
     print "URL: ", $url, "\n";
     print "RID: ", $rid, "\n";
 
-
+next;
     my $attrs = {"passphrase" => $passphrase,
 		 "developer_eci" => $developer_eci,
 		 "new_url" => $url,

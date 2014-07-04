@@ -14,7 +14,7 @@ Ruleset for registering other rulesets
 
   } 
 
-  global {
+  global { 
 
     listRulesets = function(developer_eci) {
       rid_list = rsm:list_rulesets(developer_eci);
