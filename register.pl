@@ -55,8 +55,9 @@ my $query = Kinetic::Cloud->new($config->{"query_domain"},
 				{"host" => "kibdev.kobj.net"}
 			       );
 
-my $already_registered = $query->query({"developer_eci" => $developer_eci});
-print Dumper $already_registered;
+my $already_registered = { map { $_ => 1 } @{$query->query({"developer_eci" => $developer_eci})} };
+#print Dumper $already_registered;
+
 
 foreach my $rline (@{ $rulesets }) {
 
@@ -68,12 +69,25 @@ foreach my $rline (@{ $rulesets }) {
     my $rid = $rline->{"rid"};
 
     my $version = $rline->{"version"} || "prod";
-    $rid = $clopt{"d"} ? $rid . "." . $version : $rid;
+    $rid = $rid . "." . $version;
 
-    print "URL: ", $url, "\n";
-    print "RID: ", $rid, "\n";
+    if ($clopt{'d'}) {
+	if (! $already_registered->{$rid} ) {
+	    print "Skipping $rid because it's not there \n";
+	    next;
+	} else {
+	    print "Deleting $rid \n";
+	}
+    } else {
+	if ($already_registered->{$rid}) {
+	    print "Skipping $rid because it's already registered \n";
+	    next;
+	} else {
+	    print "Registering $rid at $url\n";
+	}
+	
+    } 
 
-next;
     my $attrs = {"passphrase" => $passphrase,
 		 "developer_eci" => $developer_eci,
 		 "new_url" => $url,
@@ -82,8 +96,6 @@ next;
 
     my $eid = "REGISTRATION_".time;
     my $response = $event->raise($attrs, {"eid" => $eid, "esl" => 1});
-
-    print "Response ", sub {Dumper $response->{'directives'}};
 
     sleep 3;
 
