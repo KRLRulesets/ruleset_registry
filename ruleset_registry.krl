@@ -9,7 +9,18 @@ Ruleset for registering other rulesets
 
     use module b16x24 alias system_credentials
 
+    sharing on
+    provides listRulesets
+
   } 
+
+  global {
+
+    listRulesets = function(developer_eci) {
+      rid_list = rsm:list_rulesets(developer_eci);
+      rid_list
+    }
+  }
 
  rule register_ruleset {
    select when system new_ruleset_registration
@@ -58,7 +69,7 @@ Ruleset for registering other rulesets
  
    }
    fired {
-     log ">>>>> created ran >>>>> " + isCreated;
+     log ">>>>> deleted ran >>>>> " + isCreated;
    }
  }
 
