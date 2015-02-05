@@ -32,7 +32,10 @@ Ruleset for registering other rulesets
      expected_pp = keys:system_credentials("passphrase").klog(">>> pp >>>>");
    }
 
-   if(passphrase eq expected_pp) then 
+   if( passphrase eq expected_pp
+    && ! uri.isnull()
+    && ! rid.isnull()
+     ) then 
    {
       
       rsm:create(rid) setting (isCreated)
